@@ -19,43 +19,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-// Routes
-// =============================================================
+var friendList = [{
+    name: "Sheila",
+    photo: "https://github.com/sheilamanderson637",
+    scores: "[ 1,1,1,1,1,1,1,1,1,1 ]" 
+}, { 
+    name: "Homer Simpson",
+    photo: "https://github.com/sheilamanderson637",
+    scores: "[ 1,1,1,1,1,1,1,1,1,1 ]"  
+}];
 
-// Basic route
-// =============================================================
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "home.html"));
-});
-
-// Survey route
-//=============================================================
-app.get("/survey", function(req, res) {
-  res.sendFile(path.join(__dirname, "survey.html"));
-});
-
-// Display list of all friends
-// ===========================================================
-app.get("/api/friendList", function(req, res) {
-  res.json(friendList);
-});
-
-// Create new friend - takes in JSON input
-// ===========================================================
-app.post("/api/friendList", function(req, res) {
-  var newFriend = req.body;
-
-  console.log(newFriend);
-
-  friendList.push(newFriend);
-
-  res.json(newFriend);
-
-});
-
+require("./app/routing/api-routes")(app);
+require("./app/routing/html-routes")(app);
 
 // Start
 // =============================================================
 app.listen(PORT, function () {
-	console.log('App listening on PORT ' + PORT);
+    console.log('App listening on PORT ' + PORT);
+    console.log(friendList);
 });
