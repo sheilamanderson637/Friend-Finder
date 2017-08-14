@@ -13,6 +13,9 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+		<script src="https://code.jquery.com/jquery.js"></script>
+
+
 		<!-- Glyphs -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
@@ -97,7 +100,7 @@
 						<hr>
 
                         <h4>6. You want a friend who would rather read a book than go on an adventure.  </h4>
-                        <select data-placeholder="" class="chosen-select" id="q9">
+                        <select data-placeholder="" class="chosen-select" id="q6">
                             <option value=""></option>
                             <option selected="selected" value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -108,28 +111,6 @@
 						<hr>
 
                         <h4>7. You like friends who are not afraid to disagree with you.</h4>
-                        <select data-placeholder="" class="chosen-select" id="q10">
-                            <option value=""></option>
-                            <option selected="selected" value="1">1 (Strongly Disagree)</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5 (Strongly Agree)</option>
-						</select>
-						<hr>
-
-                        <h4>8. You need a friend who loves being outdoors.</h4>
-                        <select data-placeholder="" class="chosen-select" id="q6">
-                            <option value=""></option>
-                            <option selected="selected" value="1">1 (Strongly Disagree)</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5 (Strongly Agree)</option>
-						</select>
-						<hr>
-
-                        <h4>9. Your idea of a fun get together involves going to sporting events.</h4>
                         <select data-placeholder="" class="chosen-select" id="q7">
                             <option value=""></option>
                             <option selected="selected" value="1">1 (Strongly Disagree)</option>
@@ -140,8 +121,30 @@
 						</select>
 						<hr>
 
-                        <h4>10. You would much rather go to a restaurant and a movie than get together with friends and play games.</h4>
+                        <h4>8. You need a friend who loves being outdoors.</h4>
                         <select data-placeholder="" class="chosen-select" id="q8">
+                            <option value=""></option>
+                            <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+						</select>
+						<hr>
+
+                        <h4>9. Your idea of a fun get together involves going to sporting events.</h4>
+                        <select data-placeholder="" class="chosen-select" id="q9">
+                            <option value=""></option>
+                            <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+						</select>
+						<hr>
+
+                        <h4>10. You would much rather go to a restaurant and a movie than get together with friends and play games.</h4>
+                        <select data-placeholder="" class="chosen-select" id="q10">
                             <option value=""></option>
                             <option selected="selected" value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -155,6 +158,46 @@
                             <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                         </form>
 					</div>
-			
-				</body>
-	</html>
+
+	<script type="text/javascript">
+
+// Capture the form inputs by activating the submit button
+//===========================================================================
+
+	$('#submit').on("click", function(event) {
+		event.preventDefault();
+
+// Create an object for the user's data
+//===========================================================================
+		var userInput = {
+			name: $('#name').val().trim(),
+			photo: $('#photo').val().trim(),
+			scores: [$('#q1').val().trim(), 
+				$('#q2').val().trim(), 
+				$('#q3').val().trim(), 
+				$('#q4').val().trim(), 
+				$('#q5').val().trim(), 
+				$('#q6').val().trim(), 
+				$('#q7').val().trim(), 
+				$('#q8').val().trim(), 
+				$('#q9').val().trim(), 
+				$('#q10').val().trim()
+			]
+		};
+
+		console.log('userInput = ' + JSON.stringify(userInput));
+
+// Get the URL of the website
+//=========================================================================
+	var currentURL = window.location.origin;
+
+// Add user input to the friends list
+//=========================================================================
+	//$.post - did not finish this section
+	 });
+
+	
+	
+	</script>			
+</body>
+</html>

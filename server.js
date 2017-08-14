@@ -19,22 +19,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-var friendList = [{
-    name: "Sheila",
-    photo: "https://github.com/sheilamanderson637",
-    scores: "[ 1,1,1,1,1,1,1,1,1,1 ]" 
-}, { 
-    name: "Homer Simpson",
-    photo: "https://github.com/sheilamanderson637",
-    scores: "[ 1,1,1,1,1,1,1,1,1,1 ]"  
-}];
-
+// Require routes
+//=============================================================
 require("./app/routing/api-routes")(app);
 require("./app/routing/html-routes")(app);
 
 // Start
-// =============================================================
+//=============================================================
 app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
-    console.log(friendList);
 });
